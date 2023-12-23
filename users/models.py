@@ -13,7 +13,6 @@ def validate_file_mime_type(file):
     if file_mime_type not in accept:
         raise ValidationError(" unsupported file type")
     
-
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     image = models.ImageField(default='default.jpg', upload_to='profile_pics',validators=[ext_validator, validate_file_mime_type])
