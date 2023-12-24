@@ -17,7 +17,8 @@ from django.views.generic import (
     DetailView,
     CreateView,
     UpdateView,
-    DeleteView
+    DeleteView,
+    View
 )
 
 def home(request):
@@ -45,6 +46,14 @@ class UserPostListView(ListView):
         user = get_object_or_404(User, username=self.kwargs.get('username'))
         return Post.objects.filter(author=user).order_by('-date_posted')
     
+
+# class  LikePost(View):
+#     def post(self,request):
+#         post_id = request.POST.get('post_id')
+
+#         print(post_id)
+
+#         return JsonResponse('Like it is down there',safe=False)
 
 def  PostLikeToggle(request):
     if request.method == 'POST':

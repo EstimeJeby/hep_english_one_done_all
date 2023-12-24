@@ -5,22 +5,22 @@ from django.urls import reverse
 from PIL import Image
 from django.core.validators import FileExtensionValidator
 from django.core.exceptions import ValidationError
-# import magic
+import magic
 
 ext_validator = FileExtensionValidator(['png','jpg','jpeg'])
 
-# def validate_file_mime_type(file):
-#     accept = ['image/png','image/jpeg','image/jpg']
-#     file_mime_type =magic.from_buffer(file.read(1024),mime=True)
-#     print(file_mime_type)
-#     if file_mime_type not in accept:
-#         raise ValidationError(" unsupported file type")
+def validate_file_mime_type(file):
+    accept = ['image/png','image/jpeg','image/jpg']
+    file_mime_type =magic.from_buffer(file.read(1024),mime=True)
+    print(file_mime_type)
+    if file_mime_type not in accept:
+        raise ValidationError(" unsupported file type")
     
 
 
 class Post(models.Model):
     title = models.CharField(max_length=50)
-    image_post = models.ImageField(upload_to='Image_blog', blank=False, validators=[ext_validator])
+    image_post = models.ImageField(upload_to='Image_blog', blank=False, validators=[ext_validator,validate_file_mime_type])
     content= models.TextField()
     date_posted= models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE)

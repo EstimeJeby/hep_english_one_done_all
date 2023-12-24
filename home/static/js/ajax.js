@@ -19,10 +19,8 @@ for(var i=0; i< btn.length; i++){
             Post_like(Id , action )   
         }
     });
-
-    
+ 
 }
-
            function  Post_like(Id , action)
                 { 
                 console.log('user is log in sending data...')
@@ -49,7 +47,36 @@ for(var i=0; i< btn.length; i++){
                 })
             }
 
+// $(document).ready(function(){
 
+//     var csrf =$("input[name=csrfmiddlewaretoken]").val();
+//     $('#heartIcon').on('click' , function(){
+
+//         if (user === "AnonymousUser"){
+
+//             console.log("user not connect")
+
+//         }else{
+//             $.ajax({
+//                 url: '/like/',
+//                 type: 'post',
+//                 data:{
+//                     post_id: $(this).attr('PostId'),
+//                     csrfmiddlewaretoken: csrf,
+        
+//                 },
+//                 success:function(response){
+                    
+//                 }
+//             })
+            
+//         }
+     
+//     })
+    
+
+
+// })
 
 
 
