@@ -10,11 +10,13 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+import dj_database_url
 import environ
 from pathlib import Path
 import os
 import dotenv
 from dotenv import load_dotenv
+
 # Add .env variables anywhere before SECRET_KEY
 
 
@@ -103,6 +105,7 @@ DATABASES = {
     }
 }
 
+# DATABASES ['default']= dj_database_url.parse("postgres://hep_english_user:lLaGEan4lHfJrkZiSn8g0WKFuQy579Rr@dpg-cm4sjma1hbls73afu150-a.oregon-postgres.render.com/hep_english")
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
