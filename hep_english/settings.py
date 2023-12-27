@@ -105,7 +105,7 @@ DATABASES = {
     }
 }
 
-# DATABASES ['default']= dj_database_url.parse("postgres://hep_english_user:lLaGEan4lHfJrkZiSn8g0WKFuQy579Rr@dpg-cm4sjma1hbls73afu150-a.oregon-postgres.render.com/hep_english")
+DATABASES ['default']= dj_database_url.parse("postgres://hep_english_user:lLaGEan4lHfJrkZiSn8g0WKFuQy579Rr@dpg-cm4sjma1hbls73afu150-a.oregon-postgres.render.com/hep_english")
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
