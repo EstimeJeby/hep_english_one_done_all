@@ -44,10 +44,10 @@ SECRET_KEY= os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = os.environ.get("DEBUG",False).lower() == "true"
-
-ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
-
+# DEBUG = os.environ.get("DEBUG",False).lower() == "true"
+DEBUG = True
+# ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split("")
+ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -105,7 +105,7 @@ DATABASES = {
     }
 }
 DATABASES_URl = os.environ.get("DATABASE_URL")
-# postgres://hep_english_user:lLaGEan4lHfJrkZiSn8g0WKFuQy579Rr@dpg-cm4sjma1hbls73afu150-a.oregon-postgres.render.com/hep_english
+# 
 DATABASES ['default']= dj_database_url.parse("DATABASES_URl")
 
 # Password validation
