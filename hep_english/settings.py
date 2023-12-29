@@ -19,6 +19,8 @@ from dotenv import load_dotenv
 
 # Add .env variables anywhere before SECRET_KEY
 
+env = environ.Env()
+environ.Env.read_env(os.path.join( '.env'))
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -32,10 +34,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-dotenv_file = os.path.join(BASE_DIR , '.env')
-load_dotenv()
-if os.path.isfile(dotenv_file):
-    dotenv.load_dotenv(dotenv_file)
+# dotenv_file = os.path.join(BASE_DIR , '.env')
+# load_dotenv()
+# if os.path.isfile(dotenv_file):
+#     dotenv.load_dotenv(dotenv_file)
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
@@ -44,9 +46,14 @@ SECRET_KEY= os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = os.getenv("DEBUG",False).lower() == "true"
+            # en mode python-dotenv
+# DEBUG = os.getenv("DEBUG",False).lower() == "true"
+# ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS").split(" ")
+
+            # en mode environ 
+DEBUG  = env('DEBUG',False).lower() =='true'
 #
-ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS").split(" ")
+ALLOWED_HOSTS = env('ALLOWED_HOSTS').split(" ")
 # 
 
 # Application definition
@@ -98,15 +105,21 @@ WSGI_APPLICATION = 'hep_english.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+
+   'default': dj_database_url.parse(env("DATABASE_URL"))
+
 }
-# DATABASES_URl = os.getenv("DATABASE_URL")
-# 
-DATABASES ['default']= dj_database_url.os.getenv("DATABASES_URl")
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -153,17 +166,30 @@ MEDIA_URL = '/media/'
 
 STATICFILES_DIRS =[]
 
-AWS_ACCESS_KEY_ID=os.getenv("AWS_ACCESS_KEY_ID")
-AWS_SECRET_ACCESS_KEY=os.getenv("AWS_SECRET_ACCESS_KEY")
-AWS_STORAGE_BUCKET_NAME=os.getenv("AWS_STORAGE_BUCKET_NAME")
-AWS_S3_REGION_NAME=os.getenv("AWS_S3_REGION_NAME")
-AWS_S3_SIGNATURE_NAME=os.getenv("AWS_S3_SIGNATURE_NAME")
-AWS_S3_VERIFY=os.getenv("AWS_S3_VERIFY")
-AWS_S3_FILE_OVERWRITE=os.getenv("AWS_S3_FILE_OVERWRITE")
-AWS_DEFAULT_ACL=os.getenv("AWS_DEFAULT_ACL")
+# AWS_ACCESS_KEY_ID=os.getenv("AWS_ACCESS_KEY_ID")
+# AWS_SECRET_ACCESS_KEY=os.getenv("AWS_SECRET_ACCESS_KEY")
+# AWS_STORAGE_BUCKET_NAME=os.getenv("AWS_STORAGE_BUCKET_NAME")
+# AWS_S3_REGION_NAME=os.getenv("AWS_S3_REGION_NAME")
+# AWS_S3_SIGNATURE_NAME=os.getenv("AWS_S3_SIGNATURE_NAME")
+# AWS_S3_VERIFY=os.getenv("AWS_S3_VERIFY")
+# AWS_S3_FILE_OVERWRITE=os.getenv("AWS_S3_FILE_OVERWRITE")
+# AWS_DEFAULT_ACL=os.getenv("AWS_DEFAULT_ACL")
 
-DEFAULT_FILE_STORAGE =os.getenv("DEFAULT_FILE_STORAGE")
+# DEFAULT_FILE_STORAGE =os.getenv("DEFAULT_FILE_STORAGE")
 
+                # en move environ 
+
+
+AWS_ACCESS_KEY_ID=env('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY=env('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME=env('AWS_STORAGE_BUCKET_NAME')
+AWS_S3_REGION_NAME=env('AWS_S3_REGION_NAME')
+AWS_S3_SIGNATURE_NAME=env('AWS_S3_SIGNATURE_NAME')
+AWS_S3_VERIFY=env('AWS_S3_VERIFY')
+AWS_S3_FILE_OVERWRITE=env('AWS_S3_FILE_OVERWRITE')
+AWS_DEFAULT_ACL=env('AWS_DEFAULT_ACL')
+
+DEFAULT_FILE_STORAGE =env('DEFAULT_FILE_STORAGE')
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
 CRISPY_TEMPLATE_PACK = "bootstrap4"
@@ -171,13 +197,24 @@ CRISPY_TEMPLATE_PACK = "bootstrap4"
 LOGIN_REDIRECT_URL = ''
 LOGIN_URL = 'login'
 
-EMAIL_BACKEND =os.getenv("EMAIL_BACKEND")
-EMAIL_HOST = os.getenv("EMAIL_HOST")
-EMAIL_PORT = os.getenv("EMAIL_PORT")
-EMAIL_USE_TLS = os.getenv("EMAIL_USE_TLS")
-EMAIL_FROM = os.getenv("EMAIL_FROM")
-EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
-EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
+# EMAIL_BACKEND =os.getenv("EMAIL_BACKEND")
+# EMAIL_HOST = os.getenv("EMAIL_HOST")
+# EMAIL_PORT = os.getenv("EMAIL_PORT")
+# EMAIL_USE_TLS = os.getenv("EMAIL_USE_TLS")
+# EMAIL_FROM = os.getenv("EMAIL_FROM")
+# EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
+# EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
+
+            # en mode environ
+
+
+EMAIL_BACKEND =env('EMAIL_BACKEND')
+EMAIL_HOST = env('EMAIL_HOST')
+EMAIL_PORT = env('EMAIL_PORT')
+EMAIL_USE_TLS = env('EMAIL_USE_TLS')
+EMAIL_FROM = env('EMAIL_FROM')
+EMAIL_HOST_USER = env('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 
 
 
