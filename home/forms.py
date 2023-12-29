@@ -9,10 +9,10 @@ class CreatePost(forms.ModelForm):
        
           fields = ['title','image_post','content']
           
-          widgets = {
-            'image_post': forms.FileInput(attrs={'accept':'.png,.jpeg,jpg',}),
+        #   widgets = {
+        #     'image_post': forms.FileInput(attrs={'accept':'.png,.jpeg,.jpg',}),
             
-         }
+        #  }
 
 class CommentForm (forms.ModelForm):
     class Meta:

@@ -35,7 +35,7 @@ class ProfileUpdateForm(forms.ModelForm):
         model = Profile
         fields = ['image']
         
-        widgets ={
-            'image': forms.FileInput(attrs={'accept':'.png,.jpeg,jpg',}),
+        # widgets ={
+        #     'image': forms.FileInput(attrs={'accept':'.png,.jpeg,.jpg',}),
             
-        }
+        # }

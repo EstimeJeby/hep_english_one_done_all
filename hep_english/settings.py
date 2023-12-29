@@ -45,10 +45,10 @@ if os.path.isfile(dotenv_file):
 SECRET_KEY= os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-
+DEBUG = True
             # en mode python-dotenv
-DEBUG = os.getenv("DEBUG",False).lower() == "true"
-ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS").split(" ")
+# DEBUG = os.getenv("DEBUG",False).lower() == "true"
+ALLOWED_HOSTS = [ ]
 
             # en mode environ 
 # DEBUG  = env('DEBUG',False).lower() =='true'
@@ -116,7 +116,7 @@ WSGI_APPLICATION = 'hep_english.wsgi.application'
 
 DATABASES = {
 
-   'default': dj_database_url.parse()
+   'default': dj_database_url.parse('postgres://hep_english_user:lLaGEan4lHfJrkZiSn8g0WKFuQy579Rr@dpg-cm4sjma1hbls73afu150-a.oregon-postgres.render.com/hep_english')
 
 }
 
@@ -159,6 +159,7 @@ STATIC_URL = 'static/'
 
 DEFAULT_FILE_STORAGE = "storages.backends.s3.S3Storage"
 
+STATICFILES_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
@@ -176,7 +177,7 @@ AWS_S3_VERIFY=os.getenv("AWS_S3_VERIFY")
 AWS_S3_FILE_OVERWRITE=os.getenv("AWS_S3_FILE_OVERWRITE")
 AWS_DEFAULT_ACL=os.getenv("AWS_DEFAULT_ACL")
 
-DEFAULT_FILE_STORAGE =os.getenv("DEFAULT_FILE_STORAGE")
+# DEFAULT_FILE_STORAGE =os.getenv("DEFAULT_FILE_STORAGE")
 
 
 

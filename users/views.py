@@ -94,8 +94,7 @@ def login_1(request):
             messages.success(request, f' User connect succesfully !!')
             return redirect('blog-home')
         else:
-            for error in list(error):
-                messages.error(request,error)
+            messages.error(request, f'it can be in your username or the password that sended the error')
         
     return render(request, 'users/login.html')
 

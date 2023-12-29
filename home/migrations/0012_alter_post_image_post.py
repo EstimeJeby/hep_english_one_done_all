@@ -15,6 +15,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='post',
             name='image_post',
-            field=models.ImageField(upload_to='Image_blog', validators=[django.core.validators.FileExtensionValidator(['png', 'jpg', 'jpeg']), home.models.validate_file_mime_type]),
+            field=models.ImageField(upload_to='Image_blog'),
         ),
     ]
