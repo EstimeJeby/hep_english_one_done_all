@@ -46,6 +46,7 @@ SECRET_KEY= os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
             # en mode python-dotenv
 # DEBUG = os.getenv("DEBUG",False).lower() == "true"
 ALLOWED_HOSTS = [ ]
@@ -69,6 +70,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
      "crispy_forms",
      "crispy_bootstrap4",
+     "storages"
 ]
 
 MIDDLEWARE = [
@@ -178,8 +180,6 @@ AWS_S3_FILE_OVERWRITE=os.getenv("AWS_S3_FILE_OVERWRITE")
 AWS_DEFAULT_ACL=os.getenv("AWS_DEFAULT_ACL")
 
 # DEFAULT_FILE_STORAGE =os.getenv("DEFAULT_FILE_STORAGE")
-
-
 
                 # en move environ 
 # AWS_ACCESS_KEY_ID=env('AWS_ACCESS_KEY_ID')
