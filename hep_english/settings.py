@@ -44,10 +44,10 @@ SECRET_KEY= os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = os.environ.get("DEBUG",False).lower() == "true"
-# DEBUG = True
-ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
-# ALLOWED_HOSTS = []
+DEBUG = os.getenv("DEBUG",False).lower() == "true"
+#
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS").split(" ")
+# 
 
 # Application definition
 
@@ -104,9 +104,9 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-# DATABASES_URl = os.environ.get("DATABASE_URL")
-# # 
-# DATABASES ['default']= dj_database_url.parse("DATABASES_URl")
+# DATABASES_URl = os.getenv("DATABASE_URL")
+# 
+DATABASES ['default']= dj_database_url.os.getenv("DATABASES_URl")
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
