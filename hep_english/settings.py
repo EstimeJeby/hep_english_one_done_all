@@ -107,20 +107,20 @@ WSGI_APPLICATION = 'hep_english.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
-
-
 DATABASES = {
-
-   'default': dj_database_url.parse('postgres://hep_english_user:lLaGEan4lHfJrkZiSn8g0WKFuQy579Rr@dpg-cm4sjma1hbls73afu150-a.oregon-postgres.render.com/hep_english')
-
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
+
+
+
+# DATABASES = {
+
+#    'default': dj_database_url.parse('postgres://hep_english_user:lLaGEan4lHfJrkZiSn8g0WKFuQy579Rr@dpg-cm4sjma1hbls73afu150-a.oregon-postgres.render.com/hep_english')
+
+# }
 
 
 # Password validation
@@ -159,9 +159,9 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-DEFAULT_FILE_STORAGE = "storages.backends.s3.S3Storage"
+# DEFAULT_FILE_STORAGE = "storages.backends.s3.S3Storage"
 
-STATICFILES_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+# STATICFILES_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
@@ -170,14 +170,14 @@ MEDIA_URL = '/media/'
 STATICFILES_DIRS =[]
 
                  # en mode python-dotenv
-AWS_ACCESS_KEY_ID=os.getenv("AWS_ACCESS_KEY_ID")
-AWS_SECRET_ACCESS_KEY=os.getenv("AWS_SECRET_ACCESS_KEY")
-AWS_STORAGE_BUCKET_NAME=os.getenv("AWS_STORAGE_BUCKET_NAME")
-AWS_S3_REGION_NAME=os.getenv("AWS_S3_REGION_NAME")
-AWS_S3_SIGNATURE_NAME=os.getenv("AWS_S3_SIGNATURE_NAME")
-AWS_S3_VERIFY=os.getenv("AWS_S3_VERIFY")
-AWS_S3_FILE_OVERWRITE=os.getenv("AWS_S3_FILE_OVERWRITE")
-AWS_DEFAULT_ACL=os.getenv("AWS_DEFAULT_ACL")
+# AWS_ACCESS_KEY_ID=os.getenv("AWS_ACCESS_KEY_ID")
+# AWS_SECRET_ACCESS_KEY=os.getenv("AWS_SECRET_ACCESS_KEY")
+# AWS_STORAGE_BUCKET_NAME=os.getenv("AWS_STORAGE_BUCKET_NAME")
+# AWS_S3_REGION_NAME=os.getenv("AWS_S3_REGION_NAME")
+# AWS_S3_SIGNATURE_NAME=os.getenv("AWS_S3_SIGNATURE_NAME")
+# AWS_S3_VERIFY=os.getenv("AWS_S3_VERIFY")
+# AWS_S3_FILE_OVERWRITE=os.getenv("AWS_S3_FILE_OVERWRITE")
+# AWS_DEFAULT_ACL=os.getenv("AWS_DEFAULT_ACL")
 
 # DEFAULT_FILE_STORAGE =os.getenv("DEFAULT_FILE_STORAGE")
 

@@ -27,9 +27,9 @@ urlpatterns = [
     path('register/', user_view.register, name="register"),
     path('login/', user_view.login_1, name="login"),
     path('profile/', user_view.profile, name="profile"),
-     path('activate/<uidb64>/<token>', user_view.activate, name="activate"),
+    path('activate/<uidb64>/<token>', user_view.activate, name="activate"),
     # path('Donation/', payment_view.payment, name="Donation"),
-    path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
+    path('logout/', user_view.logout_view, name='logout'),
     
     path('password-reset/', auth_views.PasswordResetView.as_view(template_name='users/password_reset.html'), 
     name='password_reset'),

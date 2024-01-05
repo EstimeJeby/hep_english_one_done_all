@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.contrib import messages
-from django.contrib.auth import authenticate,login
+from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
 from .forms import createUserForm,UserUpdateForm,ProfileUpdateForm
 from django.contrib.auth.models import User
@@ -94,7 +94,7 @@ def login_1(request):
             messages.success(request, f' User connect succesfully !!')
             return redirect('blog-home')
         else:
-            messages.error(request, f'it can be in your username or the password that sended the error')
+            messages.info(request, f'it can be in your username or the password that sended the error')
         
     return render(request, 'users/login.html')
 
@@ -121,4 +121,11 @@ def profile(request):
     }
 
     return render(request, 'users/profile.html', context)
+
+
+def logout_view(request):
+    if request.method == 'POST':
+        logout(request)
+        return redirect('login')
+    return render(request, 'users/logout.html' )
 

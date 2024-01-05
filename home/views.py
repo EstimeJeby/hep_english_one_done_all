@@ -84,7 +84,6 @@ def  PostCreateView(request):
     if request.method == 'POST':
         form=CreatePost(request.POST,request.FILES)
         if form.is_valid():
-          
             form.instance.author = request.user
             form.save()
             messages.success(request, f'A new Post has been created!')

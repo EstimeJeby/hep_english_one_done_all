@@ -4,6 +4,7 @@ from PIL import Image
 from django.core.validators import FileExtensionValidator
 from django.core.exceptions import ValidationError
 import magic 
+
 # ext_validator = FileExtensionValidator(['png','jpg','jpeg'])
 
 # def validate_file_mime_type(file):
