@@ -49,7 +49,7 @@ DEBUG = True
 
             # en mode python-dotenv
 # DEBUG = os.getenv("DEBUG",False).lower() == "true"
-ALLOWED_HOSTS = [ ]
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
 
             # en mode environ 
 # DEBUG  = env('DEBUG',False).lower() =='true'
@@ -116,11 +116,11 @@ DATABASES = {
 
 
 
-# DATABASES = {
+DATABASES = {
 
-#    'default': dj_database_url.parse('postgres://hep_english_user:lLaGEan4lHfJrkZiSn8g0WKFuQy579Rr@dpg-cm4sjma1hbls73afu150-a.oregon-postgres.render.com/hep_english')
+   'default': dj_database_url.parse('postgres://hep_english_user:lLaGEan4lHfJrkZiSn8g0WKFuQy579Rr@dpg-cm4sjma1hbls73afu150-a.oregon-postgres.render.com/hep_english')
 
-# }
+}
 
 
 # Password validation
