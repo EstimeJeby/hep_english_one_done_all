@@ -215,7 +215,7 @@ ul{
 }
 
 .media-body .image_post{
-  max-width:300px;
+  max-width:100%;
   height: 250px;
   object-fit: cover;
 
