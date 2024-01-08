@@ -168,7 +168,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 MEDIA_URL = '/media/'
 
-STATICFILES_DIRS =[os.path.join(BASE_DIR, 'static')]
+
 
                  # en mode python-dotenv
 # AWS_ACCESS_KEY_ID=os.getenv("AWS_ACCESS_KEY_ID")
